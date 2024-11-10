@@ -1,0 +1,38 @@
+{
+    "outbounds": [
+        {
+            "type": "direct",
+            "tag": "direct-out"
+        },
+        {
+            "type": "block",
+            "tag": "block-out"
+        },
+        {
+            "type": "dns",
+            "tag": "dns-out"
+        },
+        {
+            "type": "vless",
+            "tag": "proxy-out",
+            "server": "<< SERVER-IP >>",
+            "server_port": 443,
+            "uuid": "<< ( FROM SERVER ) sing-box generate uuid >>",
+            "flow": "xtls-rprx-vision",
+            "tls": {
+                "enabled": true,
+                "server_name": "<< YOUR-DOMAIN.eu >>",
+                "utls": {
+                    "enabled": true,
+                    "fingerprint": "chrome"
+                },
+                "reality": {
+                    "enabled": true,
+                    "public_key": "<< sing-box generate reality-keypair >>",
+                    "short_id": "<< (FROM SERVER) sing-box generate rand --hex 8 >>"
+                }
+            },
+            "packet_encoding": "xudp"
+        }
+    ]
+}

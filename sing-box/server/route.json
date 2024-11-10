@@ -1,0 +1,160 @@
+{
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "rule_set": [
+          "site-list-google"
+        ],
+        "outbound": "direct-IPv4-out"
+      },
+      {
+        "rule_set": [
+            "site-list-ads"
+        ],
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": [
+            "geoip-ru",
+            "geosite-category-ru",
+            "site-list-ru",
+            "site-list-yandex",
+            "site-list-vk",
+            "site-list-mailru"
+        ],
+        "outbound": "block-out"
+      },
+      {
+        "protocol": "bittorrent",
+        "outbound": "block-out"
+      },
+      {
+        "rule_set": [
+          "site-list-unblock-ru",
+          "site-list-torrent",
+          "site-list-itdoginfo-inside-ru"
+        ],
+        "outbound": "direct-out"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "tag": "geoip-ru",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geoip/rule-set/geoip-ru.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "geosite-category-ru",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-category-ru.srs"
+      },
+      {
+        "type": "inline",
+        "tag": "site-list-unblock-ru",
+        "rules": [
+          {
+            "domain_suffix": [
+              "4pda.to",
+              "rutor.org",
+              "nnmclub.to",
+              "appmeter.ru",
+              "asger.xyz",
+              "astrr.ru",
+              "astrra.space",
+              "axell24.ru",
+              "baibako.tv"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "inline",
+        "tag": "site-list-ru",
+        "rules": [
+          {
+            "domain_suffix": [
+              ".ru",
+              ".su",
+              ".ru.com",
+              ".ru.net"
+            ],
+            "domain_keyword": [
+              "xn--",
+              "researchgate",
+              "springer",
+              "nextcloud",
+              "skype",
+              "kaspersky",
+              "stepik",
+              "likee",
+              "yappy",
+              "pikabu",
+              "okko",
+              "wink",
+              "kion",
+              "viber",
+              "roblox",
+              "ozon",
+              "wildberries",
+              "aliexpress"
+            ]
+          }
+        ]
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-torrent",
+        "format": "binary",
+        "url": "https://github.com/burjuyz/RuRulesets/raw/main/ruleset-domain-torrent_websites.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-itdoginfo-inside-ru",
+        "format": "binary",
+        "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-russia.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-ads",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ads-all.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-aljazeera",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-aljazeera.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-yandex",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-yandex.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-vk",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-vk.srs"
+      },
+      {
+        "tag": "site-list-mailru",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-mailru.srs"
+      },
+      {
+        "type": "remote",
+        "tag": "site-list-google",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-google.srs"
+      }
+    ]
+  }
+}

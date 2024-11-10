@@ -1,0 +1,112 @@
+{
+    "dns": {
+        "servers": [
+            {
+                "tag": "local-dns",
+                "address": "local",
+                "strategy": "ipv4_only",
+                "address_strategy": "ipv4_only"
+            },
+            {
+                "tag": "dns-local-out",
+                "address": "https://1.1.1.1/dns-query",
+                "strategy": "ipv4_only",
+                "address_strategy": "ipv4_only"
+            },
+            {
+                "tag": "dns-remote-out",
+                "address": "https://1.1.1.1/dns-query",
+                "client_subnet": "<< SERVER-IP >>"
+            },
+            {
+                "tag": "dns-block-out",
+                "address": "rcode://success"
+            }
+        ],
+        "final": "dns-remote-out",
+        "rules": [
+            {
+                "rule_set": [
+                    "category-ads-all"
+                ],
+                "server": "dns-block-out",
+                "disable_cache": true
+            },
+            {
+                "rule_set": [
+                    "telegram"
+                ],
+                "server": "dns-remote-out"
+            },
+            {
+                "domain_suffix": [
+                    ".ru",
+                    ".su",
+                    ".ru.com",
+                    ".ru.net",
+                    "<< YOUR-DOMAIN.eu >>",
+                    "wikipedia.org"
+                ],
+                "domain_keyword": [
+                    "xn--",
+                    "researchgate",
+                    "springer",
+                    "nextcloud",
+                    "skype",
+                    "wiki",
+                    "kaspersky",
+                    "stepik",
+                    "likee",
+                    "snapchat",
+                    "yappy",
+                    "pikabu",
+                    "okko",
+                    "wink",
+                    "kion",
+                    "viber",
+                    "roblox",
+                    "ozon",
+                    "wildberries",
+                    "aliexpress"
+                ],
+                "rule_set": [
+                    "geoip-ru",
+                    "gov-ru",
+                    "yandex",
+                    "vk",
+                    "mailru",
+                    "zoom",
+                    "reddit",
+                    "twitch",
+                    "tumblr",
+                    "duckduckgo",
+                    "yahoo",
+                    "mozilla",
+                    "category-android-app-download",
+                    "aptoide",
+                    "samsung",
+                    "huawei",
+                    "apple",
+                    "xiaomi",
+                    "hp",
+                    "asus",
+                    "lenovo",
+                    "lg",
+                    "blender",
+                    "drweb",
+                    "gitlab",
+                    "python",
+                    "doi",
+                    "elsevier",
+                    "sciencedirect",
+                    "clarivate",
+                    "sci-hub",
+                    "duolingo",
+                    "aljazeera",
+                    "torrent-clients"
+                ],
+                "server": "dns-local-out"
+            }
+        ]
+    }
+}

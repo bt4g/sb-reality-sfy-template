@@ -1,0 +1,21 @@
+{
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct-out"
+    },
+    {
+      "type": "direct",
+      "tag": "direct-IPv4-out",
+      "domain_strategy": "ipv4_only"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block-out"
+    }
+  ]
+}

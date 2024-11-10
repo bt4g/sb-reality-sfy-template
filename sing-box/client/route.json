@@ -1,0 +1,417 @@
+{
+    "route": {
+        "final": "proxy-out",
+        "rules": [
+            {
+                "protocol": "dns",
+                "outbound": "dns-out"
+            },
+            {
+                "ip_is_private": true,
+                "outbound": "direct-out"
+            },
+            {
+                "protocol": "bittorrent",
+                "outbound": "direct-out"
+            },
+            {
+                "rule_set": [
+                    "category-ads-all"
+                ],
+                "outbound": "block-out"
+            },
+            {
+                "domain_suffix": [
+                    ".ru",
+                    ".su",
+                    ".ru.com",
+                    ".ru.net",
+                    "<< YOUR-DOMAIN.eu >>",
+                    "wikipedia.org"
+                ],
+                "domain_keyword": [
+                    "xn--",
+                    "researchgate",
+                    "springer",
+                    "nextcloud",
+                    "skype",
+                    "wiki",
+                    "kaspersky",
+                    "stepik",
+                    "likee",
+                    "snapchat",
+                    "yappy",
+                    "pikabu",
+                    "okko",
+                    "wink",
+                    "kion",
+                    "viber",
+                    "roblox",
+                    "ozon",
+                    "wildberries",
+                    "aliexpress"
+                ],
+                "rule_set": [
+                    "geoip-ru",
+                    "gov-ru",
+                    "yandex",
+                    "vk",
+                    "mailru",
+                    "zoom",
+                    "reddit",
+                    "tumblr",
+                    "duckduckgo",
+                    "yahoo",
+                    "mozilla",
+                    "category-android-app-download",
+                    "aptoide",
+                    "samsung",
+                    "huawei",
+                    "apple",
+                    "xiaomi",
+                    "hp",
+                    "asus",
+                    "lenovo",
+                    "lg",
+                    "blender",
+                    "drweb",
+                    "gitlab",
+                    "python",
+                    "doi",
+                    "elsevier",
+                    "sciencedirect",
+                    "clarivate",
+                    "sci-hub",
+                    "duolingo",
+                    "aljazeera",
+                    "torrent-clients",
+                    "ru-app-list"
+                ],
+                "outbound": "direct-out"
+            },
+            {
+                "rule_set": [
+                    "telegram",
+                    "unbanru-app-list",
+                    "itdoginfo-inside-russia"
+                ],
+                "outbound": "proxy-out"
+            }
+        ],
+        "rule_set": [
+            {
+                "tag": "geoip-ru",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geoip/raw/rule-set/geoip-ru.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "gov-ru",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-gov-ru.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "yandex",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-yandex.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "telegram",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-telegram.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "vk",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-vk.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "mailru",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/SagerNet/sing-geosite/rule-set/geosite-mailru.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "zoom",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-zoom.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "reddit",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-reddit.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "twitch",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-twitch.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "tumblr",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-tumblr.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "duckduckgo",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-duckduckgo.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "yahoo",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-yahoo.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "mozilla",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-mozilla.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "category-android-app-download",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-android-app-download.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "aptoide",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-aptoide.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "samsung",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-samsung.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "huawei",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-huawei.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "apple",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-apple.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "xiaomi",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-xiaomi.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "hp",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-hp.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "asus",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-asus.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "lenovo",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-lenovo.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "lg",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-lg.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "blender",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-blender.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "drweb",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-drweb.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "gitlab",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-gitlab.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "python",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-python.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "doi",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-doi.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "elsevier",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-elsevier.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "sciencedirect",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-sciencedirect.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "clarivate",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-clarivate.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "sci-hub",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-sci-hub.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "duolingo",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-duolingo.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "aljazeera",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-aljazeera.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "tag": "category-ads-all",
+                "type": "remote",
+                "format": "binary",
+                "url": "https://github.com/SagerNet/sing-geosite/raw/rule-set/geosite-category-ads-all.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "type": "remote",
+                "tag": "torrent-clients",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/legiz-ru/sb-rule-sets/main/torrent-clients.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "type": "remote",
+                "tag": "ru-app-list",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/legiz-ru/sb-rule-sets/main/ru-app-list.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "type": "remote",
+                "tag": "unbanru-app-list",
+                "format": "binary",
+                "url": "https://raw.githubusercontent.com/legiz-ru/sb-rule-sets/main/unbanru-app-list.srs",
+                "download_detour": "proxy-out"
+
+            },
+            {
+                "type": "remote",
+                "tag": "itdoginfo-inside-russia",
+                "format": "binary",
+                "url": "https://github.com/legiz-ru/sb-rule-sets/raw/main/itdoginfo-inside-russia.srs",
+                "download_detour": "proxy-out"
+            }
+        ],
+        "auto_detect_interface": true,
+        "override_android_vpn": true
+    }
+}

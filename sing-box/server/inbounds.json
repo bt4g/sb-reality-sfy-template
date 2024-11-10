@@ -1,0 +1,43 @@
+{
+  "inbounds": [
+    {
+      "type": "vless",
+      "tag": "vless-in",
+      "listen": "::",
+      "listen_port": 443,
+      "sniff": true,
+      "tls": {
+        "enabled": true,
+        "server_name": "<< YOUR-DOMAIN.eu >>",
+        "reality": {
+          "enabled": true,
+          "handshake": {
+            "server": "127.0.0.1",
+            "server_port": 7443
+          },
+          "private_key": "<< sing-box generate reality-keypair >>",
+          "short_id": [
+            "<< sing-box generate rand --hex 8 >>"
+          ]
+        }
+      },
+      "users": [
+        {
+          "name": "client-1",
+          "uuid": "<< sing-box generate uuid >>",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "client-2",
+          "uuid": "<< sing-box generate uuid >>",
+          "flow": "xtls-rprx-vision"
+        },
+        {
+          "name": "client-3",
+          "uuid": "<< sing-box generate uuid >>",
+          "flow": "xtls-rprx-vision"
+        }
+      ]
+    }
+  ]
+}

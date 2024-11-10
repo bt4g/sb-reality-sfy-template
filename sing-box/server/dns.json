@@ -1,0 +1,34 @@
+{
+  "dns": {
+    "disable_cache": false,
+    "disable_expire": false,
+    "servers": [
+      {
+        "tag": "local-dns",
+        "address": "local"
+      },
+      {
+        "tag": "cloudflare-dns-out",
+        "address": "tls://1.1.1.1",
+        "address_resolver": "local-dns"
+      },
+      {
+        "tag": "block-dns-out",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "rule_set": [
+          "site-list-ads"
+        ],
+        "server": "block-dns-out",
+        "disable_cache": true
+      },
+      {
+        "outbound": "any",
+        "server": "cloudflare-dns-out"
+      }
+    ]
+  }
+}
